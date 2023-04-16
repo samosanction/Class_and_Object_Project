@@ -5,7 +5,7 @@ class Building:
         self.owner = owner
 
     def change_color(self):
-        new_color = input('what is the new color you want? ...\n')
+        new_color = str(input('what is the new color you want? ...\n'))
         self.color = new_color
         print(f'Your Building Color has been updated to {self.color}')
         system_home()
@@ -37,19 +37,22 @@ print(
 
 # Selection of the building to be changed
 def select_building():
-    print(
-        'Please select your building .\n 1. Building1. \n 2. Building2 \n 3. Building3\n\n')
-    building = input('Here..\n')
+    while True:
+        try:
+            print(
+                'Please select your building .\n 1. Building1. \n 2. Building2 \n 3. Building3\n\n')
+            building = int(input('Here..\n'))
 
-    if building == '1':
-        return 'building1'
-    if building == '2':
-        return 'building2'
-    if building == '3':
-        return 'building3'
-    else:
-        print('Wrong input!!!')
-        system_home()
+            if building == 1:
+                return 'building1'
+            if building == 2:
+                return 'building2'
+            if building == 3:
+                return 'building3'
+            else:
+                print('Wrong input!!!')
+        except ValueError:
+            print('Exception !!!')
 
 
 def system_home():
